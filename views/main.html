@@ -4,11 +4,12 @@
 
 <h4>Latest Chats:</h4>
 <div class="jumbotron">
-
-	<form ng-submit="addMessage(newMessage)">
+	<form><input ng-model="username" type="text" placeholder="username"></form>
+	<form ng-submit="addMessage(newMessage, username)">
+		
 		<input ng-model="newMessage" type="text" placeholder="Hello!">
 	</form>
 
-	<div ng-repeat="message in messages track by $index">{{ message }}</div>
+	<div ng-repeat="message in messages track by $index"> <strong>{{message.username}} : </strong> {{ message.message }}  ({{message.time | date: "short"}})</div>
 
 </div>
